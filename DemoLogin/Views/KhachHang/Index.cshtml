@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DemoLogin.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách khách hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Số chứng minh nhân dân
+        </th>
+        <th>
+            Họ
+        </th>
+        <th>
+            Tên
+        </th>
+        <th>
+            Tuổi
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cmnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tuoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cmnd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cmnd }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cmnd })
+        </td>
+    </tr>
+}
+
+</table>
